@@ -1,9 +1,7 @@
-/**
- * Created by michael_hopps on 12/1/17.
- */
+
 public class TestCities {
 
-     private City[] cities;
+    private City[] cities;
 
     public TestCities(){
         cities = new City[20];
@@ -28,8 +26,9 @@ public class TestCities {
         cities[18] = new City(794, 346);
         cities[19] = new City(621, 27);
     }
+
     public City[] getCities(){
-        return getCities();
+        return cities;
     }
 
 
