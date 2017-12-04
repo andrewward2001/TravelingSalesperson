@@ -28,7 +28,7 @@ public class TestCities {
     }
 
     public City[] getCities(){
-        return getCities();
+        return cities;
     }
 
 

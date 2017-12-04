@@ -1,4 +1,3 @@
-// dayeeni yana
 
 public class City {
     int x;
