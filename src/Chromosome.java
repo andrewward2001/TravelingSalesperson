@@ -8,6 +8,7 @@ public class Chromosome {
     private ArrayList<City> cities = new ArrayList<City>();
     private double dist;
     private int sequences = 100;
+    private double mutateChance = 0.8;
 
     public Chromosome(ArrayList<City> cities){
         this.cities = cities;
