@@ -1,8 +1,6 @@
 
 public class Main {
 
-
-
     public static void main(String[] args) {
         TestCities cities = new TestCities();
         City[] cities1 = cities.getCities();
