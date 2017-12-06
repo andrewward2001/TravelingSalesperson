@@ -12,7 +12,7 @@ public class Chromosome {
         this.cities = cities;
     }
 
-    public double calcDist(){
+    public int calcDist(){
         if(dist!=0){
             return dist;
         }
