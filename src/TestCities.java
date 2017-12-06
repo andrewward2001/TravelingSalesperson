@@ -43,7 +43,10 @@ public class TestCities {
         Collections.sort(chromosomes, new Comparator<Chromosome>() {
             @Override
             public int compare(Chromosome o1, Chromosome o2) {
-                return o1.calcDist() - o2.calcDist();
+                if(o1.calcDist() - o2.calcDist() >= 0)
+                    return 1;
+                else
+                    return -1;
             }
         });
     }
