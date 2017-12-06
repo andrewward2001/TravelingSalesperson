@@ -3,8 +3,8 @@ import java.util.*;
 public class TestCities {
 
     private ArrayList<City> cities;
-    private ArrayList<Chromosome> chromosomes;
-    private int size = 20;
+    public ArrayList<Chromosome> chromosomes;
+    private int size;
 
     public TestCities(int size) {
         this.size = size;
@@ -15,11 +15,17 @@ public class TestCities {
     }
 
     public void fill() {
-
+        for(int i = 0; i < size; i++) {
+            Collections.shuffle(cities);
+            chromosomes.add(new Chromosome(cities));
+        }
     }
 
     public void generation() {
-
+        sort();
+        kill();
+        reproduce();
+        sort();
     }
 
     public void mutate() {
@@ -30,7 +36,10 @@ public class TestCities {
     }
 
     public void reproduce() {
-
+        int size = chromosomes.size();
+        for(int i = 0; i < size; i++) {
+            chromosomes.add(chromosomes.get(i).reproduce());
+        }
     }
 
     public void kill() {

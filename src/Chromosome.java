@@ -15,7 +15,7 @@ public class Chromosome {
         if(dist!=0){
             return dist;
         }
-        for (int i = 0; i < cities.size(); i++) {
+        for (int i = 0; i < cities.size()-1; i++) {
             dist += cities.get(i).distanceTo(cities.get(i+1));
         }
 
@@ -25,7 +25,7 @@ public class Chromosome {
     public double calcDist(ArrayList<City> otherCities) {
         double distance = 0;
 
-        for (int i = 0; i < otherCities.size(); i++) {
+        for (int i = 0; i < otherCities.size()-1; i++) {
             distance += otherCities.get(i).distanceTo(otherCities.get(i+1));
         }
 
@@ -34,18 +34,18 @@ public class Chromosome {
 
     public void mutate() {
         ArrayList<City> citiesCopy = cities;
-        int city1 = (int) (Math.random() + citiesCopy.size());
-        int city2 = (int) (Math.random() + citiesCopy.size());
+        int city1 = (int) (Math.random() * citiesCopy.size());
+        int city2 = (int) (Math.random() * citiesCopy.size());
         Collections.swap(citiesCopy, city1, city2);
 
         if(calcDist(citiesCopy) < calcDist())
             cities = citiesCopy;
     }
 
-    public ArrayList<City> reproduce() {
+    public Chromosome reproduce() {
         Chromosome c = this;
         c.mutate();
-        return c.cities;
+        return c;
     }
 
 }
