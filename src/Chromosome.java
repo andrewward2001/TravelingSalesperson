@@ -12,9 +12,10 @@ public class Chromosome {
     }
 
     public double calcDist(){
-        if(dist!=0){
-            return dist;
-        }
+//        if(dist!=0){
+//            return dist;
+//        }
+        dist = 0;
         for (int i = 0; i < cities.size()-1; i++) {
             dist += cities.get(i).distanceTo(cities.get(i+1));
         }
