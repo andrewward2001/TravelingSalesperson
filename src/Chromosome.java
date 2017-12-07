@@ -1,3 +1,4 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -7,8 +8,10 @@ public class Chromosome {
     public int sequences = 100;
     public double mutateChance = 0.8;
 
+
     public Chromosome(ArrayList<City> cities){
         this.cities = cities;
+
     }
 
     public double calcDist(){
@@ -43,7 +46,7 @@ public class Chromosome {
     }
 
     public Chromosome reproduce() {
-        Chromosome c = this;
+        Chromosome c = new Chromosome(cities);
         c.mutate();
         return c;
     }
