@@ -4,6 +4,8 @@ public class TestCities {
 
     private ArrayList<City> cities;
     public ArrayList<Chromosome> chromosomes;
+    public ArrayList<Chromosome> chromosomes1;
+
     private int size;
 
     public TestCities(int size) {
@@ -22,6 +24,7 @@ public class TestCities {
     }
 
     public void generation() {
+
         sort();
         kill();
         reproduce();
@@ -29,18 +32,35 @@ public class TestCities {
     }
 
     public void mutate() {
-        for(int i = size/2; i < size; i++) {
-            Chromosome c = chromosomes.get(i);
-            c.mutate();
+//        for(int i = size/2; i < size; i++) {
+//            Chromosome c = chromosomes.get(i);
+//            c.mutate();
+//        }
+        for (int i = chromosomes.size()-1; i > 0; i--) {
+
+            Collections.shuffle(chromosomes.get(i).cities.subList(0 , i));
+
+
         }
     }
 
     public void reproduce() {
+//        for (int i = 0; i < chromosomes.size(); i++) {
+//            Chromosome c = chromosomes.get(i);
+//            c.mutate();
+//            chromosomes.add(c);
+//        }
+
+
         int size = chromosomes.size();
+
         for(int i = 0; i < size; i++) {
-            chromosomes.add(chromosomes.get(i).reproduce());
+            chromosomes.add(chromosomes.get(i).reproduce(chromosomes.get(i)));
+
         }
     }
+
+
 
     public void kill() {
         while(chromosomes.size() > size/2) {
